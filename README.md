@@ -28,22 +28,17 @@ A comprehensive web-based system for managing laboratory rooms, equipment, and m
 
 ## Installation
 
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/lab_management_.git
-```
-
-2. Set up your web server (XAMPP):
+1. Set up your web server (XAMPP):
    - Place the project in your `htdocs` directory
    - Start Apache and MySQL services
 
-3. Create a database:
+2. Create a database:
    - Open phpMyAdmin
    - Import the database schema from `sql/database.sql`
    - Import the database schema from `sql/update_audit_logs.sql`
    - Import the database schema from `sql/password_resets.sql`
 
-4. Access the application:
+3. Access the application:
    - Open your browser
    - Navigate to `http://localhost/lab_management_`
 
