@@ -311,6 +311,39 @@ class Auth {
     
     // Check if user has permission to report maintenance
     public function canReportMaintenance() {
-        return $this->isLoggedIn(); // All logged in users can report maintenance issues
+        return $this->isAdmin() || $this->isLabTechnician() || $this->isFaculty() || $this->isStudentAssistant();
+    }
+
+    // Verify current password
+    public function verifyPassword($currentPassword) {
+        if (!$this->user) {
+            return false;
+        }
+
+        $userModel = new User();
+        return $userModel->verifyPassword($this->user['user_id'], $currentPassword);
+    }
+
+    // Update user password
+    public function updatePassword($newPassword) {
+        if (!$this->user) {
+            return false;
+        }
+
+        $userModel = new User();
+        $result = $userModel->updatePassword($this->user['user_id'], $newPassword);
+
+        if ($result) {
+            // Log password change
+            $auditLog = new AuditLog();
+            $auditLog->logAction(
+                $this->user['user_id'],
+                'password_change',
+                'User changed their password',
+                $this->getIpAddress()
+            );
+        }
+
+        return $result;
     }
 } 

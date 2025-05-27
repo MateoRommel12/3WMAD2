@@ -191,7 +191,7 @@ require_once __DIR__ . '/../includes/header.php';
                         </table>
                     </div>
                     <div class="text-center mt-3">
-                        <a href="/equipment/movements.php" class="btn btn-outline-primary">
+                        <a href="../equipment/movements.php" class="btn btn-outline-primary">
                             View All Movements
                         </a>
                     </div>

@@ -227,4 +227,16 @@ class User extends BaseModel {
         $query = "UPDATE password_resets SET used = 1 WHERE user_id = :userId AND used = 0";
         return $this->db->execute($query, ['userId' => $userId]);
     }
+
+    // Verify user's current password
+    public function verifyPassword($userId, $currentPassword) {
+        $query = "SELECT password FROM {$this->table} WHERE user_id = :userId";
+        $user = $this->db->single($query, ['userId' => $userId]);
+        
+        if ($user && password_verify($currentPassword, $user['password'])) {
+            return true;
+        }
+        
+        return false;
+    }
 } 

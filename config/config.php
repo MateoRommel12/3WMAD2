@@ -27,4 +27,4 @@ ini_set('display_errors', 1);
 date_default_timezone_set('Asia/Manila'); // For Philippines
 
 // Hash cost for password encryption
-define('PASSWORD_COST', 12); 
+define('PASSWORD_COST', 12);    

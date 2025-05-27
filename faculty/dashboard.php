@@ -287,6 +287,11 @@ $roomStats = $roomModel->getRoomStatistics();
                                 </tbody>
                             </table>
                         </div>
+                        <div class="text-center mt-3">
+                        <a href="../equipment/movements.php" class="btn btn-outline-primary">
+                            View All Movements
+                        </a>
+                    </div>
                     <?php endif; ?>
                 </div>
             </div>
